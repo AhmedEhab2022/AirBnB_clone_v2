@@ -34,5 +34,5 @@ server {
     location /redirect_me {
      	return 301 https://ahmedehabdom.tech/hbnb_static/;
     }
-" > /etc/nginx/sites-available/default
+}" > /etc/nginx/sites-available/default
 sudo systemctl restart nginx
