@@ -18,7 +18,7 @@ echo "<html>
   </body>
 </html>" > /data/web_static/releases/test/index.html
 ln -sf /data/web_static/releases/test/ /data/web_static/current
-sudo chmod -R ubuntu:ubuntu /data/
+sudo chown -R ubuntu:ubuntu /data/
 echo "
 server {
     listen 80;
