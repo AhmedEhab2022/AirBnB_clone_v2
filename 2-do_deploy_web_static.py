@@ -6,9 +6,9 @@ from fabric.api import env, put, run
 import os
 
 
-env.hosts = ['54.175.195.131', '54.84.164.54']
+env.hosts = ['35.174.185.16', '34.229.72.168']
 env.user = "ubuntu"
-env.key_filename = "my_private_key"
+env.key_filename = "~/.ssh/school"
 
 
 def do_deploy(archive_path):
@@ -26,7 +26,7 @@ def do_deploy(archive_path):
         archive_name = archive_path.split("/")[-1]
         no_ext = archive_name.split(".")[0]
         unCompPath = "/data/web_static/releases"
-        run("mkdir -P {}{}/".format(unCompPath, no_ext))
+        run("mkdir -p {}/{}".format(unCompPath, no_ext))
         run("tar -xzf /tmp/{} -C {}/{}/".format(archive_name,
                                                 unCompPath, no_ext))
         run("rm /tmp/{}".format(archive_name))
