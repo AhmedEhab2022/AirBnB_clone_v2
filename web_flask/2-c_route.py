@@ -27,7 +27,7 @@ def hbnb():
 def c():
     """ display “C ” followed by the value of the text variable"""
 
-    formated_text = escape(text).replace("_", " ")
+    formated_text = text.replace("_", " ")
     return f"C {formated_text}"
 
 
