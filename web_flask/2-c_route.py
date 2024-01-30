@@ -24,7 +24,7 @@ def hbnb():
 
 
 @app.route("/c/<text>", strict_slashes=False)
-def c():
+def c(text):
     """ display “C ” followed by the value of the text variable"""
 
     formated_text = text.replace("_", " ")
