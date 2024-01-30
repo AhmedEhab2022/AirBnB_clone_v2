@@ -40,12 +40,11 @@ def python(text="is cool"):
     return f"Python {formated_text}"
 
 
-@app.route("/number/<n>", strict_slashes=False)
+@app.route("/number/<int:n>", strict_slashes=False)
 def number(n):
     """ display “n is a number” only if n is an integer"""
 
-    if (type(n) == int):
-        return n
+    return f"{n} is a number"
 
 
 if __name__ == '__main__':
