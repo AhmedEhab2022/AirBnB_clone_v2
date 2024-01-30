@@ -29,6 +29,7 @@ class DBStorage:
         save(selfsession
         delete(self, obj=None)
         reload(self)
+        def close(self)
     """
     __engine = None
     __session = None
@@ -41,8 +42,11 @@ class DBStorage:
         my_sql_db = getenv("HBNB_MYSQL_DB")
         hbnb_env = getenv("HBNB_ENV")
 
+        connection_string = (f"mysql+mysqldb://{my_sql_user}:{my_sql_pwd}"
+                             f"@{my_sql_host}/{my_sql_db}")
+
         self.__engine = create_engine(
-            f"mysql+mysqldb://{my_sql_user}:{my_sql_pwd}@{my_sql_host}/{my_sql_db}",
+            connection_string,
             pool_pre_ping=True
         )
 
@@ -85,3 +89,7 @@ class DBStorage:
                                        expire_on_commit=False)
         Session = scoped_session(session_factory)
         self.__session = Session()
+
+    def close(self):
+        """ call remove() method on the private session attribute"""
+        self.__session.remove()
